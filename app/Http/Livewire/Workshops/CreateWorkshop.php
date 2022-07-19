@@ -210,7 +210,6 @@ use WithFileUploads;
             'toast'=>true,
             'position'=>'top-right'
         ]);
-//        $this->redirect('/workshops');
    }
     public function createWorkshopEvents($workshop, $trainers)
     {
