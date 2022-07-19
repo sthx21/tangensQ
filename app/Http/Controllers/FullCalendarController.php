@@ -1,0 +1,101 @@
+<?php
+
+namespace App\Http\Controllers;
+use Carbon\Carbon;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use App\Models\Event;
+
+class FullCalendarController extends Controller
+{
+    /**
+     * Write code on Method
+     *
+     *
+     */
+    public function index(Request $request)
+
+    {
+
+//        $start = '2022-06-27';
+//            $end = '2022-08-08';
+//
+//        $data = \DB::table('events')
+//            ->whereDate('start', '>=', $start)
+//            ->whereDate('end', '<=', $end)
+//            ->get();
+//        dd($data);
+        return view('calendar');
+    }
+
+    public function getWorkshopEvents(Request $request)
+    {
+            $data = \DB::table('events')
+                ->where('type', '=', 'workshop')
+                ->whereDate('start', '>=', $request->start)
+                ->whereDate('end', '<=', $request->end)
+                ->get();
+            return response()->json($data);
+
+    }
+    public function getInHouseEvents(Request $request)
+    {
+        $data = \DB::table('events')
+            ->where('type', '=', 'inhouse')
+            ->whereDate('start', '>=', $request->start)
+            ->whereDate('end', '<=', $request->end)
+            ->get();
+        return response()->json($data);
+
+    }
+    public function getWebExEvents(Request $request)
+    {
+        $data = \DB::table('events')
+            ->where('type', '=', 'webex')
+            ->whereDate('start', '>=', $request->start)
+            ->whereDate('end', '<=', $request->end)
+            ->get();
+        return response()->json($data);
+
+    }
+    /**
+     * Write code on Method
+     *
+     * @return JsonResponse()
+     */
+    public function editEvents(Request $request)
+    {
+
+        switch ($request->type) {
+
+            case 'create':
+                dd($request);
+                $event = Event::create([
+                    'title' => $request->title,
+                    'start' => $request->start,
+                    'end' => $request->end,
+                ]);
+                return response()->json($event);
+                break;
+            case 'update':
+                dd($request);
+                $start = Carbon::create($request->start);
+                $end = Carbon::create($request->end);
+                $event = Event::find($request->id)->update([
+                    'title' => $request->title,
+                    'start' => $start,
+                    'end' => $end,
+                ]);
+                return response()->json($event);
+                break;
+            case 'delete':
+                $event = Event::find($request->id)->delete();
+                return response()->json($event);
+                break;
+            default:
+                # code...
+                break;
+        }
+    }
+}

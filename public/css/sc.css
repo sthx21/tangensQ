@@ -1,0 +1,33 @@
+
+/* -------------SelfMade CSS------------- */
+
+/* Tooltip - Begin*/
+.sc-tooltip {
+    position:relative;
+}
+.sc-tooltip:before {
+    content: attr(data-tooltip);
+    position:absolute;
+
+    /* vertically center */
+    top:50%;
+    transform:translateY(-50%);
+
+    /* move to right */
+    left:100%;
+    margin-left:15px; /* and add a small left margin */
+
+    /* basic styles */
+    width:200px;
+    padding:10px;
+    border-radius:10px;
+    background:#ffffff;
+    color: #000000;
+    text-align:center;
+
+    display:none; /* hide by default */
+}
+.sc-tooltip:hover:before {
+    display:block;
+}
+/* Tooltip - End*/

@@ -1,0 +1,675 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+:root {
+    --s-primary: #98ca52;
+    --s-warning: #ff3922;
+}
+/******************************/
+/***/
+/****************BASE ELEMENTS
+/***/
+/******************************/
+.trixEditor {
+    height: 300px;
+}
+.companyActivity {
+    background-color: var(--s-primary);
+}
+.right-menu {
+    margin-top: 6px;
+    margin-right: 8px;
+    width: 100%;
+    height: 100vh;
+}
+.dividerLine {
+    border-bottom: grey solid 1px;
+}
+.thickDividerLine {
+    display: flex;
+    justify-content: center;
+    border-bottom: 8px solid grey;
+    border-radius: 5px;
+}
+.imagePreview {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    position: center;
+}
+.addedItemsBox {
+    display: flex;
+    border: #0a0302 dashed 1px;
+    width: 100%;
+    height: 120px;
+    margin-top: 2px;
+    border-radius: 4px;
+}
+.addedItemsBox > div {
+    height: fit-content;
+}
+.advancedFilterBox {
+    display: flex;
+    border: #0a0302 dashed 1px;
+    width: 100%;
+    height: 80px;
+    margin-top: 2px;
+    border-radius: 4px;
+}
+.advancedFilterBox > div {
+    height: fit-content;
+    background-color: #0b4121;
+    color: black;
+}
+/******************************/
+/***/
+/****************ACCORDION
+/***/
+/******************************/
+
+.accordion-wrapper {
+    display: block;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.accordion + .title {
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    background: #1565C0;
+}
+
+.accordion ~ .title strong {
+    line-height: 24px;
+    color: white;
+}
+
+.accordion ~ .title .side-icon {
+    display: block;
+}
+
+.accordion:checked ~ .title .side-icon {
+    display: none;
+}
+
+.accordion ~ .title .down-icon {
+    display: none;
+}
+
+.accordion:checked ~ .title .down-icon {
+    display: block;
+}
+
+.accordion ~ .content {
+    display: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.accordion:checked ~ .content {
+    display: block;
+}
+
+/******************************/
+/***/
+/****************PAGINATION
+/***/
+/******************************/
+.paginate {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.paginate button {
+    background-color: var(--s-primary);
+    color: whitesmoke;
+    width: fit-content;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
+.paginate button:active {
+    background-color: green;
+}
+.paginate button:hover {
+    box-shadow: lightgrey;
+    background-color: green;
+    transition-duration: 0.1s;
+    transform: translateY(-5px);
+}
+
+/******************************/
+/***/
+/****************ACTIVITIES
+/***/
+/******************************/
+.activity {
+    box-shadow: 5px 5px black;
+    background-color: white;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 0;
+    margin-bottom: 4px;
+    width: 100%;
+}
+.activityText {
+    padding-top: 4px;
+}
+/******************************/
+/***/
+/****************TABLES
+/***/
+/******************************/
+.tableHeader {
+    font-weight: bold;
+    border: #98ca52 solid 1px;
+}
+.tableHeader:last-child {
+    border-right: #98ca52;
+    width: 10%;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.tableHeader:last-child:hover {
+    background-color: white;
+    color: black;
+    cursor: default;
+
+}
+.tableHeader:hover {
+    background-color: #98ca52;
+    color: white;
+    cursor: pointer;
+}
+.staffTable {
+    width: 100%;
+}
+.staffTable th {
+    padding-right: 20px;
+}
+.staffTable td {
+    margin-top: 4px;
+    width: fit-content;
+}
+.groupTable {
+    width: 100%;
+}
+.groupTable th {
+    padding-right: 20px;
+}
+.groupTable td {
+    margin-top: 4px;
+    width: fit-content;
+}
+.tableTopMenu{
+    display: flex;
+    margin-left: 24px;
+    margin-top: 16px;
+    justify-content: space-between;
+}
+.tableTopLeft {
+    display: flex;
+}
+.tableTopRight {
+    display: flex;
+    margin-right: 16px;
+}
+.showRightMenu {
+    display: flex;
+    z-index: -1;
+    justify-content: center;
+}
+/******************************/
+/***/
+/****************XSHDW
+/***/
+/******************************/
+.xshdwInput:hover {
+    border-radius: 0;
+    border: #98ca52 solid 2px;
+}
+.xshdwInput:active {
+    border-radius: 0;
+    border: #98ca52 solid 2px;
+}
+.xshdwSelect:hover {
+    border-radius: 0;
+    border: #98ca52 solid 2px;
+}
+.xshdwSelect select:hover {
+    background-color: white;
+    border: #98ca52 solid 2px;
+}
+/******************************/
+/***/
+/****************LISTS
+/***/
+/******************************/
+.searchResults {
+    font-weight: bold;
+    font-size: large;
+    border-radius: 4px;
+    border: gray solid 1px;
+    padding: 4px;
+    background-color: white;
+    text-align: left;
+}
+.searchResults li:hover {
+    background-color: #98ca52;
+    cursor: pointer;
+}
+.listItem {
+    display: flex;
+    position: relative;
+    border-left: #98ca52 solid 1px;
+    border-right: #98ca52 solid 1px;
+    background-color: white;
+    z-index: 999999;
+    text-align: center;
+    padding: 8px;
+}
+.listItem:hover {
+    background-color: #98ca52;
+    color: white;
+}
+.listItem:last-child {
+    display: flex;
+    position: relative;
+    border-bottom: #98ca52 solid 2px;
+}
+/******************************/
+/***/
+/****************TAGS
+/***/
+/******************************/
+.tagFilter {
+    background-color: #98ca52;
+    width: fit-content;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: small;
+    border: solid 1px;
+    display: inline-block;
+    justify-content: left;
+    margin-top: 1px;
+}
+.unset {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: cadetblue;
+    border-radius: 4px;
+    padding: 8px;
+    border: solid 1px;
+    margin-top: 1px;
+}
+.tagFilter:hover {
+    background-color: lightblue;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+.addedTag {
+    background-color: white;
+    width: fit-content;
+    border-radius: 4px;
+    font-size: small;
+    padding: 4px;
+    border: solid 1px;
+    display: inline-block;
+    justify-content: left;
+}
+.removeTag {
+    font-weight: bold;
+    font-size: large;
+    color: crimson;
+    border-radius: 16px;
+    padding: 4px;
+    background-color: white;
+
+}
+.removeTag:hover{
+    background-color: crimson;
+    color: white;
+    cursor: pointer;
+}
+/******************************/
+/***/
+/****************EXPORTS
+/***/
+/******************************/
+.exportMenu {
+    background-color: #98ca52;
+    border-radius: 4px;
+    padding: 12px;
+    box-shadow: green 5px 5px ;
+    width: 100%;
+}
+.exportToExcel {
+    background-color: #98ca52;
+    color: white;
+    width: 100px;
+    height: 100%;
+    border-radius: 4px;
+    font-size: large;
+    padding: 4px;
+    border: black solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: green 5px 5px ;
+}
+.exportToExcel:hover {
+    background-color: green;
+    transition-duration: 0.3s;
+    transform: translateX(-5px);
+}
+
+/******************************/
+/***/
+/****************REMINDERS
+/***/
+/******************************/
+#a:hover ~ #b {
+    display: block;
+}
+.showReminders {
+    z-index: 3;
+    max-width: 250px;
+}
+.showReminders:hover {
+   border: white solid 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.showRemindersBody {
+    display: none;
+}
+.showRemindersBody:hover {
+    display: block;
+}
+
+/******************************/
+/***/
+/****************BUTTONS
+/***/
+/******************************/
+
+a button {
+    color: white;
+}
+.storeButton {
+    width: 150px;
+    background-color: #98ca52;
+    border-radius: 4px;
+    display: flex;
+    justify-content: right;
+    text-align: right;
+    color: white;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.2),0 2px 10px 0 rgba(0,0,0,.1);
+    padding-bottom: 8px;
+    padding-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    transform: translateX(100px);
+}
+.storeButton:hover {
+    background-color: green;
+}
+.storeButtonBig {
+    width: 250px;
+    background-color: var(--s-primary);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.2),0 2px 10px 0 rgba(0,0,0,.1);
+    padding-bottom: 8px;
+    padding-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    transform: translateX(50px);
+}
+.storeButtonBig:hover {
+    background-color: green;
+}
+.addButton {
+    background-color: #98ca52;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    color: whitesmoke;
+}
+.addButton:hover {
+    background-color: green;
+    color: cadetblue;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    transform: translateY(-5px);
+    border: white solid 2px;
+}
+
+.buttonToggle {
+    background-color: #98ca52;
+    border-radius: 8px;
+    border: white solid 1px;
+    width: 100%;
+}
+.buttonToggled {
+    background-color: var(--s-warning);
+    border-radius: 8px;
+    border: white solid 1px;
+    width: 100%;
+}
+.editButton {
+    background-color: var(--s-primary);
+    padding: 8px;
+    border-bottom-left-radius: 4px;
+    margin-right: 0;
+    margin-left: 4px;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    box-shadow: 5px 5px green;
+}
+.editButton:hover {
+
+    transform: translateY(-5px);
+    transition-duration: 0.5s;
+    background-color: green;
+}
+.buttonMenu {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+.backToButton {
+    background-color: #007bff;
+    padding: 8px;
+    margin-right: 0;
+    margin-left: 0;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    box-shadow: 5px 5px #98ca52
+}
+.backToButton:hover {
+    transition-duration: 0.5s;
+    transform: translateX(-5px);
+}
+.removeButton {
+    background-color: var(--s-warning);
+    padding: 8px;
+    border-top-right-radius: 4px;
+    margin-right: 4px;
+    margin-left: 0;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    box-shadow: 5px 5px #98ca52
+}
+.removeButton:hover {
+    transition-duration: 0.5s;
+    transform: translateX(5px);
+}
+.removeButtonCircle {
+    background-color: var(--s-warning);
+    padding: 8px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-right: 0;
+    margin-left: 4px;
+    width: fit-content;
+    color: white;
+}
+.removeButtonCircle:hover {
+    background-color: #ff0036;
+    box-shadow: white;
+    transform: translateY(-5px);
+}
+.detailsButton {
+    background-color: #007bff;
+    padding: 8px;
+    border-top-right-radius: 4px;
+    margin-right: 4px;
+    margin-left: 0;
+    width: fit-content;
+    color: white;
+    box-shadow: 5px 5px green
+}
+.detailsButton:hover {
+    transition-duration: 0.5s;
+    transform: translateY(-5px);
+}
+.activeButton {
+    background-color: var(--s-primary);
+    padding: 8px;
+    border-top-right-radius: 4px;
+    margin-right: 4px;
+    margin-left: 0;
+    width: fit-content;
+    color: white;
+    box-shadow: 5px 5px green;
+}
+.activeButton:hover {
+    cursor: default;
+}
+.inactiveButton {
+    background-color: var(--s-warning);
+    padding: 8px;
+    border-top-right-radius: 4px;
+    margin-right: 4px;
+    margin-left: 0;
+    width: fit-content;
+    color: white;
+    box-shadow: 5px 5px darkred;
+}
+.inactiveButton:hover {
+    cursor: default;
+}
+.createReminderButton {
+    background-color: var(--s-primary);
+    padding: 8px;
+    border-top-right-radius: 4px;
+    margin-right: 4px;
+    margin-left: 0;
+    width: fit-content;
+    color: white;
+    box-shadow: 5px 5px green;
+}
+.createReminderButton:hover {
+    transition-duration: 0.5s;
+    transform: translateX(5px);
+    cursor: pointer;
+}
+.createButton {
+    background-color: #007bff;
+    padding: 8px;
+    border-top-right-radius: 4px;
+    margin-right: 4px;
+    margin-left: 0;
+    height: fit-content;
+    width: fit-content;
+    color: white;
+    box-shadow: 5px 5px lightgrey;
+}
+.completedButton {
+    background-color:var(--s-primary);
+    padding: 8px;
+    border-top-right-radius: 4px;
+    margin-right: 4px;
+    margin-left: 0;
+    height: fit-content;
+    width: fit-content;
+    color: white;
+    box-shadow: 5px 5px green;
+    float: right;
+}
+.memberButton {
+    background-color: #98ca52;
+    width: fit-content;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: small;
+    border: solid 1px;
+    display: inline-block;
+    justify-content: center;
+    margin-top: 1px;
+}
+
+.memberButton:hover {
+    background-color: red;
+    color: #0a0302;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+.downloadButton {
+    background-color: #98ca52;
+    width: fit-content;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: small;
+    border: solid 1px;
+    display: inline-block;
+    justify-content: center;
+    margin-top: 1px;
+}
+
+.downloadButton:hover {
+    background-color: green;
+    color: #0a0302;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+.uploadButton {
+    background-color: var(--s-primary);
+    color: white;
+    width: 60px;
+    height: 40px;
+    padding: 4px;
+    font-size: small;
+    border: solid 1px var(--s-primary);
+    display: inline-block;
+    justify-content: center;
+    margin-top: 1px;
+    margin-right: -4px;
+    box-shadow: 5px 5px green;
+}
+
+.uploadButton:hover {
+    background-color: green;
+    color: white;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+

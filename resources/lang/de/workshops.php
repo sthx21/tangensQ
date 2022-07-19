@@ -1,0 +1,222 @@
+<?php
+
+return [
+
+    //General
+
+    'general'                               => [
+
+        'new'                                   => 'Erstellen',
+        'days'                                  => 'Tag(e)',
+        'start'                                 => 'Noch',
+        'yes'                                   => 'Ja',
+        'no'                                    => 'Nein..',
+        'newWorkshop'                           => 'Neuen Workshop erstellen',
+        'editWorkshop'                          => 'Workshop bearbeiten',
+        'back'                                  => 'Zurück',
+        'all'                                   => 'Alle',
+        'cancel'                                => 'abbrechen',
+        'ended'                                 => 'Beendet',
+        'upcoming'                              => 'Noch',
+        'delete'                                => 'Löschen..'
+    ],
+
+    // Confirmations
+
+    'confirm'                               => [
+        'Delete'                                => 'Wirklich löschen?',
+        'Cancel'                                => 'Wirklich stornieren? Alle Teilnehmer/Trainer werden per eMail benachrichtigt.',
+        'Restore'                               => 'Wirklich Reaktivieren?',
+        'Edit'                                  => 'Sind alle Änderungen richtig?',
+        'New'                                   => 'Sind alle Angaben richtig?',
+    ],
+
+    // Titles
+
+    'showing-all-online'                        => 'Online',
+    'showing-all-faceToFace'                    => 'FaceToFace',
+    'users-menu-alt'                            => 'Show Users Management Menu',
+    'editing-workshop'                          => 'Editing :name, Date  :date',
+    'showing-workshop'                          => 'Showing :name',
+    'showing-workshop-title'                    => 'Workshop :name',
+
+
+    // Edit Workshop
+    'edit'                                   => [
+    'addClients'                            => 'TN hinzufgen :',
+    'bookedClients'                         => 'Gebuchte TN :',
+    'addTopicField'                             => 'Feld hinzufügen',
+    'removeTrainer'                             => '!--Trainer entfernen--!',
+    'trainerOne'                                => 'Erster Trainer:',
+    'trainerTwo'                                => 'Zweiter Trainer:',
+    'status'                                    => 'Status: ',
+    'topic_coreQuestions'                       => 'Inhalte - Kernfragen: ',
+    'title'                                     => 'Titel: ',
+    'additionalTitle'                           => 'Zusatztitel: ',
+    'targets'                                   => 'Zielgruppe: ',
+    'processFlow'                               => 'Ablauf: ',
+    'detail'                                    => 'Nutzen - Zielsetzung: ',
+    'startDate'                                     => 'Anfang: ',
+    'endDate'                                   => 'Ende: ',
+    'location'                                  => 'Hotel: ',
+    ],
+
+
+    // Flash Messages
+    'createSuccess'                             => 'Seminar erfolgreich erstellt!',
+    'updateSuccess'                             => 'Seminar erfolgreich bearbeitet! ',
+    'deleteSuccess'                             => 'Seminar erfolgreich gelöscht! ',
+    'cancelSuccess'                             => 'Seminar erfolgreich storniert! ',
+    'uncancelSuccess'                           => 'Seminar Status erfolgreich Inaktiv geändert! ',
+
+    // Labels For Workshop Show
+    'show'                                 => [
+    'status'                                    => 'Status',
+    'title'                                     => 'Titel: ',
+    'clientName'                                => 'TN Name: ',
+    'hrClientName'                              => 'HR Name: ',
+    'clientFirm'                                => 'Arbeitgeber: ',
+    'additional_title'                          => 'Zusatztitel: ',
+    'Clients'                                   => 'Teilnehmerliste: ',
+    'noStaffClients'                            => 'Keine HR Buchungen bisher..!',
+    'noClients'                                 => 'Keine TN Buchungen bisher..!',
+    'bookedClients'                             => 'Gebuchte HR/TN :',
+    'region'                                    => 'Region',
+    'location'                                  => 'Location :',
+    'cancellation_date'                         => 'Stornodatum :',
+    'time'                                      => 'Uhrzeit :',
+    'startDate'                                 => 'Start :',
+    'endDate'                                   => 'Ende :',
+    'cancelDays'                                => 'Stornofrist :',
+    'date'                                      => 'Datum :',
+    'processFlow'                               => 'Ablauf:',
+    'misc'                                      => 'Sonstiges :',
+    'miscLink'                                  => 'Sonstiges Link :',
+    'targets'                                   => 'Zielgruppe :',
+    'price'                                     => 'Netto Preis :',
+    'series'                                    => 'Serie :',
+    'trainer'                                   => 'Trainer :',
+    'occupancyRate'                             => 'Auslastung :',
+    'occupancyRateClients'                      => '/12',
+    'details'                                   => 'Nutzen - Zielsetzung : ',
+    'topicCoreQuestions'                        => 'Inhalte / Kernfragen :',
+    'otherDates'                                => 'Folgetermine:',
+    'ChatRoom'                                  => 'Chat Room:',
+    'begin'                                    => 'Beginn:',
+    'createdAt'                                 => 'Erstellt am :',
+    'updatedAt'                                 => 'Geändert am :',
+    'deletedAt'                                 => 'Gelöscht am :',
+    'viewProfile'                               => 'Profil anzeigen',
+    'addClients'                                => 'TN hinzufgen',
+    'editClients'                               => 'TN ändern',
+    'editWorkshop'                              => 'Bearbeiten',
+    'deleteWorkshop'                            => 'Löschen',
+    'canceledWorkshops'                         => 'Stornierte'
+    ],
+
+    // Labels For Workshop Create
+    'forms'                                     => [
+        'workshop_title'                                  => 'Titel: ',
+        'workshop_additional_title'                 => 'Zusatztitel: ',
+        'location'                                  => 'Standort :',
+        'LocationPh'                                => 'Bitte Wählen',
+        'LocationIcon'                              => 'fa-map-marker',
+        'trainer'                                  => 'Trainer :',
+        'SecondTrainer'                                  => 'Zweiter Trainer :',
+        'StartDate'                                 => 'Startdatum :',
+        'StartDateIcon'                             => 'fa-calendar',
+        'EndDate'                                   => 'Enddatum :',
+        'EndDateIcon'                               => 'fa-calendar',
+        'time'                                      => 'Uhrzeit :',
+        'timeIcon'                                  => 'fa-calendar',
+        'date'                                      => 'Datum :',
+        'ProcessFlow'                               => 'Ablauf :',
+        'Misc'                                      => 'Sonstiges :',
+        'MiscLink'                                  => 'Sonstiges Link :',
+        'Targets'                                   => 'Zielgruppe :',
+        'cancelDays'                                => 'Stornofrist:',
+        'price'                                     => 'Netto Preis :',
+        'OccupancyRate'                             => 'Auslastung :',
+        'OccupancyRateClients'                      => '/12 gebucht',
+        'Details'                                   => 'Nutzen - Zielsetzung : ',
+        'TopicCoreQuestions'                        => 'Inhalte / Kernfragen :',
+        'OtherDates'                                => 'Weitere Daten:',
+        'ChatRoom'                                  => 'Chat Room:',
+        'Status'                                    => 'Status:',
+        'CreatedAt'                                 => 'Erstellt am :',
+        'UpdatedAt'                                 => 'Geändert am :',
+        'DeletedAt'                                 => 'Gelöscht am :',
+        'viewProfile'                               => 'Profil anzeigen',
+        'addClients'                                => 'TN hinzufgen',
+        'editClients'                               => 'TN ändern',
+        'editWorkshop'                              => 'Bearbeiten',
+        'deleteWorkshop'                            => 'Löschen',
+        'canceledWorkshops'                         => 'Stornierte'
+    ],
+
+    // Labels For Workshop Index
+    'index'                       => [
+        'id'                                    => 'ID',
+        'name'                                  => 'Seminar',
+        'title'                                 => 'Titel:',
+        'detail'                                => 'Nutzen - Zielsetzung:',
+        'date'                                  => 'Datum:',
+        'cancelDate'                            => 'Stornoablauf:',
+        'location'                              => 'Location:',
+        'trainer'                               => 'Trainer:',
+        'trainerCount'                          => 'Anzahl Trainer:',
+        'status'                                => 'Status:',
+        'clientCount'                           => 'TN: ',
+        'actions'                               => 'Optionen',
+        'unbooked'                              => 'Keine Buchungen bisher..!',
+        'onlyToday'                             => 'NUR HEUTE!',
+        'until'                                 => 'Bis:',
+        'ended'                                 => 'Endete am:',
+        'begin'                                 => 'Beginn:',
+        'end'                                   => 'Ende:',
+        // Pagination Key Words
+        'showing'                               => 'Zeige',
+        'of'                                    => 'von',
+        'workshops'                             => 'Seminare.',
+
+    ],
+
+    'buttons'                               => [
+        'new'                                   => 'Erstellen',
+        'cancel'                                => 'abbrechen',
+        'cancelWorkshop'                        => 'Stornieren',
+        'uncancelWorkshop'                      => 'Reaktivieren',
+        'canceledWorkshops'                     => 'Storniert',
+        'endedWorkshops'                        => 'Beendet',
+        'delete'                                => 'Löschen..',
+        'save'                                  => 'Speichern',
+        'show'                                  => 'Details',
+        'edit'                                  => 'Bearbeiten',
+        'editClients'                           => 'TN ändern',
+        'backToWorkshops'                       => 'Zurück zur Seminar Übersicht',
+        'backToWorkshop'                        => 'Zurück zum Seminar',
+        'group'                                 => 'Button Group',
+        'active'                                => 'Aktive',
+    ],
+
+    'tooltips'                              => [
+        'active'                                => 'Aktive Seminare anzeigen',
+        'cancel'                                => 'Abbrechen',
+        'cancelWorkshop'                        => 'Seminar stornieren',
+        'uncancelWorkshop'                      => 'Seminar reaktivieren',
+        'canceled'                              => 'Stornierte Seminare anzeigen',
+        'delete'                                => 'Löschen',
+        'show'                                  => 'Alle Details anzeigen',
+        'edit'                                  => 'Seminar bearbeiten',
+        'editClients'                           => 'Teilnehmer bearbeiten',
+        'location'                              => 'Location',
+        'trainer'                               => 'Trainer',
+        'new'                                   => 'Neues Seminar erstellen',
+        'back-workshops'                        => 'Zurück zur Übersicht',
+        'email-workshop'                        => 'Email :workshop',
+        'submit-search'                         => 'Submit workshop Search',
+        'clear-search'                          => 'Clear Search Results',
+    ],
+
+
+];

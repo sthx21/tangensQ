@@ -1,0 +1,78 @@
+{
+  "version" : "1.1",
+  "profiles" : [ {
+    "id" : "df5f86b5-cb7e-4d4e-823d-63d6b211ef41",
+    "name" : "Laravel (PHP, BLADE)",
+    "keyNamingPattern" : "SNAKE_CASE_PATTERN",
+    "sink" : {
+      "id" : "6a92cc13-94c5-409c-bbec-05f32caee832",
+      "type" : "namespaced",
+      "translationsDirectory" : "$PROJECT_DIR$/resources/lang",
+      "fileType" : "php",
+      "defaultLocale" : "de",
+      "namespaces" : [ "auth", "clients", "companies", "forms", "pagination", "passwords", "trainers", "validation", "workshops" ],
+      "outputFilenameTemplate" : "%locale%/%namespace%.php",
+      "nestingType" : "DOT",
+      "placeholderFormatterName" : "LARAVEL"
+    },
+    "sources" : [ {
+      "id" : "8023b231-f85c-4d7f-845c-2f3b94e1d70c",
+      "type" : "php",
+      "scopeName" : "i18n Ally: Laravel/PHP source",
+      "scopePattern" : "file[tangensq]:app//*&&!file[tangensq]:app/Broadcasting//*&&!file[tangensq]:app/Console//*&&!file[tangensq]:app/Events//*&&!file[tangensq]:app/Exceptions//*&&!file[tangensq]:app/Models//*&&!file[tangensq]:app/Providers//*",
+      "replacementTemplate" : "trans('%namespace%.%key%', %map%)",
+      "skipDefaultNamespace" : false,
+      "sprintfMode" : false
+    }, {
+      "id" : "dfa10d88-f029-4a4c-8be3-fc73101e77a6",
+      "type" : "blade",
+      "scopeName" : "i18n Ally: Laravel/Blade templates",
+      "scopePattern" : "file[tangensq]:resources/views//*",
+      "replacementTemplate" : "trans('%namespace%.%key%', %map%)",
+      "inlineTagNames" : [ "a", "abbr", "acronym", "b", "bdi", "bdo", "big", "br", "cite", "code", "data", "del", "dfn", "em", "i", "img", "input", "ins", "kbd", "label", "mark", "meter", "output", "progress", "q", "ruby", "s", "samp", "slot", "small", "span", "strong", "sub", "sup", "time", "u", "tt", "var", "wbr" ],
+      "translatableAttributeNames" : [ "title", "alt", "placeholder", "label", "aria-label" ],
+      "skipDefaultNamespace" : false
+    } ]
+  }, {
+    "id" : "42adf901-346d-440f-8373-c6eb5b2041c4",
+    "name" : "Symfony (PHP, TWIG)",
+    "keyNamingPattern" : "SNAKE_CASE_PATTERN",
+    "sink" : {
+      "id" : "e37918ed-d108-453f-935d-022f9656dbac",
+      "type" : "namespaced",
+      "translationsDirectory" : "$PROJECT_DIR$/resources/lang",
+      "fileType" : "php",
+      "defaultLocale" : "en",
+      "namespaces" : [ "auth", "clients", "companies", "forms", "pagination", "passwords", "trainers", "validation", "workshops" ],
+      "outputFilenameTemplate" : "%locale%/%namespace%.php",
+      "nestingType" : "DOT",
+      "placeholderFormatterName" : "SYMFONY_REPLACEMENT"
+    },
+    "sources" : [ {
+      "id" : "62d8a576-f7bc-4a35-aaf5-7a8c5055f800",
+      "type" : "php",
+      "scopeName" : "i18n Ally: Symfony/PHP source",
+      "scopePattern" : "file[tangensq]:src//*&&!file[tangensq]:src/DataFixtures//*",
+      "replacementTemplate" : "$this->translator->trans('%key%', %map%, '%namespace%')",
+      "skipDefaultNamespace" : true,
+      "sprintfMode" : false
+    }, {
+      "id" : "f37ad0be-0cb4-488f-aba3-b4676ce2a400",
+      "type" : "twig",
+      "scopeName" : "i18n Ally: Symfony/Twig templates",
+      "scopePattern" : "file[tangensq]:templates//*",
+      "replacementTemplate" : "trans(%map%, '%namespace%')",
+      "inlineTagNames" : [ "a", "abbr", "acronym", "b", "bdi", "bdo", "big", "br", "cite", "code", "data", "del", "dfn", "em", "i", "img", "input", "ins", "kbd", "label", "mark", "meter", "output", "progress", "q", "ruby", "s", "samp", "slot", "small", "span", "strong", "sub", "sup", "time", "u", "tt", "var", "wbr" ],
+      "translatableAttributeNames" : [ "title", "alt", "placeholder", "label", "aria-label" ],
+      "skipDefaultNamespace" : true
+    } ]
+  } ],
+  "ignores" : {
+    "valuesInProject" : [ "use strict" ],
+    "valuesInFile" : { },
+    "filesInProject" : [ ],
+    "unignoredFunctionNames" : [ ],
+    "unignoredFunctionArguments" : { },
+    "ignoredArrayKeys" : [ "class", "selector", "template", "middleware", "layout", "el", "component", "type", "name", "id", "key", "sql", "query", "dateFormat", "date", "condition" ]
+  }
+}
