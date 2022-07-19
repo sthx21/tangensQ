@@ -71,7 +71,7 @@ use WithFileUploads;
         $group = collect();
         $this->group = $group;
 
-        $this->topics[] = [
+        $this->topic_coreQuestions[] = [
             'topic' => '',
         ];
 
@@ -112,7 +112,7 @@ use WithFileUploads;
 
     public function addTopic()
     {
-        $this->topics[] = [
+        $this->topic_coreQuestions[] = [
             'title' => '',
         ];
     }
@@ -164,7 +164,6 @@ use WithFileUploads;
 
     public function store()
     {
-        dd($this);
         $this->validate();
 
         $workshopSeriesIds = [];
@@ -185,10 +184,10 @@ use WithFileUploads;
             $workshop->region = $event['region'];
 
             $workshop->cancellation_date = createDate($event['start_date'])->copy()->subDays($event['cancel_days'])->format('Y-m-d');
-            $workshop->topic_coreQuestions = $this->topics;
+            $workshop->topic_coreQuestions = $this->topic_coreQuestions;
             $workshop->user_id = \Auth::id();
             $workshop->save();
-
+            $this->createWorkshopEvents($workshop, $trainers);
             $workshopSeriesIds[] = $workshop->id;
             $workshop->trainers()->attach($trainers);
 //            $notification = new Mailer();
@@ -211,9 +210,12 @@ use WithFileUploads;
             'toast'=>true,
             'position'=>'top-right'
         ]);
-        $this->redirect('/workshops');
+//        $this->redirect('/workshops');
    }
-
+    public function createWorkshopEvents($workshop, $trainers)
+    {
+        $this->emit('createEventFromWorkshop', $workshop, $trainers);
+    }
     public function setLogo($id)
     {
         $path = Storage::path('tmpLogos');

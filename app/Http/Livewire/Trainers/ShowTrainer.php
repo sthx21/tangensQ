@@ -21,6 +21,7 @@ class ShowTrainer extends Component
     public $workshopFilter = 'future';
     public $sort = 'title';
     public $direction = 1;
+    public $events;
 
 
     protected $listeners = ['refreshTrainer' => '$refresh'];
@@ -37,6 +38,8 @@ class ShowTrainer extends Component
     {
       $this->trainer = $trainer;
       $this->activities = Activity::where('trainer_id', $trainer->id)->with('user')->latest()->get();
+      $this->events = $trainer->events;
+
     }
     public function updated($propertyName)
     {

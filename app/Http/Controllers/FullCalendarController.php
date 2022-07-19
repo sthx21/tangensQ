@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Trainer;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -18,14 +19,6 @@ class FullCalendarController extends Controller
 
     {
 
-//        $start = '2022-06-27';
-//            $end = '2022-08-08';
-//
-//        $data = \DB::table('events')
-//            ->whereDate('start', '>=', $start)
-//            ->whereDate('end', '<=', $end)
-//            ->get();
-//        dd($data);
         return view('calendar');
     }
 
@@ -33,21 +26,43 @@ class FullCalendarController extends Controller
     {
             $data = \DB::table('events')
                 ->where('type', '=', 'workshop')
+                ->where('booked', '=', 0)
                 ->whereDate('start', '>=', $request->start)
                 ->whereDate('end', '<=', $request->end)
                 ->get();
             return response()->json($data);
 
     }
-    public function getInHouseEvents(Request $request)
+    public function getBookedWorkshopEvents(Request $request)
     {
         $data = \DB::table('events')
-            ->where('type', '=', 'inhouse')
+            ->where('type', '=', 'workshop')
+            ->where('booked', '=', 1)
             ->whereDate('start', '>=', $request->start)
             ->whereDate('end', '<=', $request->end)
             ->get();
         return response()->json($data);
 
+    }
+    public function getInHouseEvents(Request $request)
+    {
+        $data = \DB::table('events')
+            ->where('type', '=', 'inhouse')
+            ->where('booked', '=', 0)
+            ->whereDate('start', '>=', $request->start)
+            ->whereDate('end', '<=', $request->end)
+            ->get();
+        return response()->json($data);
+    }
+    public function getBookedInHouseEvents(Request $request)
+    {
+        $data = \DB::table('events')
+            ->where('type', '=', 'inhouse')
+            ->where('booked', '=', true)
+            ->whereDate('start', '>=', $request->start)
+            ->whereDate('end', '<=', $request->end)
+            ->get();
+        return response()->json($data);
     }
     public function getWebExEvents(Request $request)
     {
@@ -56,6 +71,18 @@ class FullCalendarController extends Controller
             ->whereDate('start', '>=', $request->start)
             ->whereDate('end', '<=', $request->end)
             ->get();
+        return response()->json($data);
+
+    }
+    public function getTrainerEvents(Request $request)
+    {
+        $trainer = Trainer::whereId($request->trainerId)->with('events')->first();
+        $data = $trainer->events()
+            ->whereDate('start', '>=', $request->start)
+            ->whereDate('end', '<=', $request->end)
+            ->get();
+        ;
+//        dd($data);
         return response()->json($data);
 
     }

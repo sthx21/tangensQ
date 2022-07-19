@@ -145,4 +145,8 @@ class Trainer extends Model implements HasMedia
     {
         return $this->belongsToMany(Tag::class);
     }
+    public function events()
+    {
+        return $this->belongsToMany(Event::class)->withPivot(['status', 'canceled']);
+    }
 }

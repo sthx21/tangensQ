@@ -78,9 +78,15 @@ Route::view('/Kalender', 'calendar');
 ///
         Route::get('inHouse', [FullCalendarController::class, 'index'])->name('inHouse');
         Route::get('getWorkshopEvents', [FullCalendarController::class, 'getWorkshopEvents']);
+        Route::get('getBookedWorkshopEvents', [FullCalendarController::class, 'getBookedWorkshopEvents']);
+
+        Route::get('getTrainerEvents', [FullCalendarController::class, 'getTrainerEvents']);
+
         Route::get('getWebexEvents', [FullCalendarController::class, 'getWebexEvents']);
 
         Route::get('getInHouseEvents', [FullCalendarController::class, 'getInHouseEvents']);
+        Route::get('getBookedInHouseEvents', [FullCalendarController::class, 'getBookedInHouseEvents']);
+
         Route::post('editEvents', [FullCalendarController::class, 'editEvents']);
     Route::resource('dashboard', HomeController::class, [
     'names' => [

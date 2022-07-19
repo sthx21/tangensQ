@@ -18,7 +18,6 @@ class DownloadButton extends Component
         $downloadPath = storage_path('pdfUploads');
         $downloadFile = $pdf->file_name;
         $download = $downloadPath.$downloadFile;
-
         return Storage::disk('pdfUploads')->download($downloadFile);
     }
 

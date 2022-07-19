@@ -83,7 +83,7 @@
                                     </table>
                                 </div>
                                 <div class="w-full">
-                                    <textarea class="w-100" style="height: fit-content; min-height: 200px">{{$offer->about}}</textarea>
+                                    <textarea class="w-100" style="height: fit-content; min-height: 200px" disabled>{{$offer->about}}</textarea>
                                 </div>
                                 <div class="col-12">
                                     <table class="table table-bordered" id="series">

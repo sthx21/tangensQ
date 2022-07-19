@@ -15,5 +15,8 @@
         <div class="border-bottom col-12"></div>
             @include('livewire.trainers.partials.show-trainer-workshops')
         </div>
+    <div class="border-bottom col-12"></div>
+    @include('trainers.trainer-calendar')
+</div>
     </div>
 

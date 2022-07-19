@@ -159,7 +159,6 @@ class EditOffer extends Component
     }
     public function update()
     {
-//        dd($this->updater);
         if ($this->offer->status !== 'won'){
             $this->offer->events = $this->events;
             $this->offer->save();

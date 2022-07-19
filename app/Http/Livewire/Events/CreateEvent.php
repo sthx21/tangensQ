@@ -17,7 +17,7 @@ class CreateEvent extends Component
     public $event;
     public $attributes;
 
-    protected $listeners = ['createEventFromOffer'];
+    protected $listeners = ['createEventFromOffer', 'createEventFromWorkshop'];
 
 
     protected $rules = [
@@ -56,7 +56,6 @@ class CreateEvent extends Component
 
     public function createEventFromOffer($attributes, $company)
     {
-//        dd($attributes);
         foreach ($attributes['events'] as $event){
             $secondTrainer = Trainer::whereId($event['second_trainer'])->first();
             $firstTrainer = Trainer::whereId($event['first_trainer'])->first();
@@ -77,10 +76,37 @@ class CreateEvent extends Component
             $newEvent->groupId = $event['groupId'] ?? 1;
             $newEvent->first_trainer_name = $firstTrainer->last_name ?? '';
             $newEvent->second_trainer_name = $secondTrainer->last_name ?? '';
-
             $newEvent->save();
 
+            $trainerIds = [$firstTrainer->id, $secondTrainer->id];
+            $newEvent->trainers()->attach($trainerIds);
+            $newEvent->companies()->attach($company['id']);
         }
+    }
+    public function createEventFromWorkshop($workshop, $trainers)
+    {
+            $firstTrainer = $trainers[0]['last_name'] ?? '';
+            $secondTrainer = $trainers[1]['last_name'] ?? '';
+
+            $newEvent = new Event();
+            $newEvent->title = $workshop['title'].' im '.$workshop['location'];
+            $newEvent->type = 'workshop';
+            $newEvent->start = Carbon::create($workshop['start_date'])->setTimeFromTimeString($workshop['start_time']);
+            $newEvent->end = Carbon::create($workshop['end_date'])->setTimeFromTimeString($workshop['end_time']) ?: null;
+            $newEvent->user_id = \Auth::id();
+            $newEvent->location = $workshop['location'] ?? '';
+
+            if ($newEvent->start === $newEvent->end){
+                $workshop['allDay'] = 1;
+            }
+            $newEvent->allDay = $workshop['allDay'] ?? 0;
+            $newEvent->groupId = $workshop['groupId'] ?? 1;
+            $newEvent->first_trainer_name = $firstTrainer;
+            $newEvent->second_trainer_name = $secondTrainer;
+            $newEvent->save();
+
+            $newEvent->trainers()->attach($trainers);
+
     }
     public function store()
     {

@@ -159,4 +159,8 @@ class Company extends Model implements HasMedia
     {
         return $this->belongsTo(User::class);
     }
+    public function events()
+    {
+        return $this->belongsToMany(Event::class);
+    }
 }

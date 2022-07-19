@@ -23,4 +23,13 @@ class Event extends Model
         'offer_number',
         'groupId',
     ];
+
+    public function trainers()
+    {
+        return $this->belongsToMany(Trainer::class);
+    }
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class);
+    }
 }

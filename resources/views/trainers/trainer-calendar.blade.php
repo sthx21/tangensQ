@@ -1,5 +1,3 @@
-<x-app-layout>
-    <x-slot name="header">
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -17,48 +15,15 @@
 
                         // your event source
                         {
-                            url: '/getWorkshopEvents',
+                            url: '/getTrainerEvents',
                             method: 'GET',
                             extraParams: {
+                                trainerId: {{$trainer->id}}
                             },
                             failure: function() {
                                 alert('there was an error while fetching events!');
                             },
                             color: 'green',   // a non-ajax option
-                            textColor: 'white' // a non-ajax option
-                        },
-                        {
-                            url: '/getBookedWorkshopEvents',
-                            method: 'GET',
-                            extraParams: {
-                            },
-                            failure: function() {
-                                alert('there was an error while fetching events!');
-                            },
-                            color: 'green',   // a non-ajax option
-                            textColor: 'white' // a non-ajax option
-                        },
-                        {
-                            url: '/getInHouseEvents',
-                            method: 'GET',
-                            extraParams: {
-                            },
-                            failure: function() {
-                                alert('Events konnten nicht geladen werden..!');
-                            },
-                            color: 'yellow',   // a non-ajax option
-                            textColor: 'black' // a non-ajax option
-                        }
-                        ,
-                        {
-                            url: '/getBookedInHouseEvents',
-                            method: 'GET',
-                            extraParams: {
-                            },
-                            failure: function() {
-                                alert('Events konnten nicht geladen werden..!');
-                            },
-                            color: 'blue',   // a non-ajax option
                             textColor: 'white' // a non-ajax option
                         }
                     ],
@@ -212,9 +177,7 @@
 
 
         </script>
-    </x-slot>
-    <x-index-create>
-        <div class="row">
+        <div class="row mx-4">
 
 
         <div class="col-md-9">
@@ -235,40 +198,9 @@
                           Art:
                       </th>
                   </tr>
-                  <tr>
-                      <td>
-                          <span style="background-color: yellow; color: black; padding: 4px">Titel</span>
-                      </td>
-                      <td>
-                          <span>Reserviert InHouse</span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <span style="background-color: blue; color: white; padding: 4px">Titel</span>
-                      </td>
-                      <td>
-                          <span>Gebucht InHouse</span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <span style="background-color: gold; color: black; padding: 4px">Titel</span>
-                      </td>
-                      <td>
-                          <span>Reserviert Seminar</span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <span style="background-color: green; color: white; padding: 4px">Titel</span>
-                      </td>
-                      <td>
-                          <span>Gebucht Seminar</span>
-                      </td>
-                  </tr>
+
+
               </table>
           </div>
         </div>
-    </x-index-create>
-</x-app-layout>
+

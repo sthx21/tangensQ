@@ -189,7 +189,7 @@ class CreateOffer extends Component
         $offer->user_id = \Auth::id();
         $offer->offer_date = Carbon::today();
         $offer->status = trans('accounting.labels.status_created');
-        $this->createEvents($offer);
+        $this->createOfferEvents($offer);
         $offer->save();
 
         $offer->companies()->attach($this->recipient['id']);
@@ -204,15 +204,12 @@ class CreateOffer extends Component
             'toast'=>true,
             'position'=>'top-right'
         ]);
-        $this->redirect('/accounting');
+
     }
 
-    public function createEvents($offer)
+    public function createOfferEvents($offer)
     {
-
         $this->emit('createEventFromOffer', $offer, $this->recipient);
-
-
     }
     public function addActivity($title, $offerNumber)
     {

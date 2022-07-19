@@ -1,24 +1,24 @@
 <div class="col-12 w-full">
     <div class="ml-8 mr-8 d-flex justify-content-between align-items-center">
         <div>
-            @if($workshopFilter === 'all')
+            @if($eventFilter === 'all')
                 <strong>{{ trans('companies.labels.workshopAll') }}</strong>
             @endif
-            @if($workshopFilter === 'future')
+            @if($eventFilter === 'future')
                 <strong>{{ trans('companies.labels.workshopActive') }}</strong>
             @endif
-            @if($workshopFilter === 'history')
+            @if($eventFilter === 'history')
                 <strong>{{ trans('companies.labels.workshopsHistory') }}</strong>
             @endif
-            @if($workshopFilter === 'canceled')
+            @if($eventFilter === 'canceled')
                 <strong>{{ trans('companies.labels.canceledWorkshop') }}</strong>
             @endif
         </div>
         <div class="mb-4">
-            <button class="editButton" wire:click.prevent="getWorkshops('all')" name="future">Alle</button>
-            <button class="editButton" wire:click.prevent="getWorkshops('future')" name="future">Aktiv</button>
-            <button class="editButton" wire:click.prevent="getWorkshops('history')" name="past">Beendet</button>
-            <button class="editButton" wire:click.prevent="getWorkshops('canceled')" name="past">Trainer Storno</button>
+            <button class="editButton" wire:click.prevent="getEvents('all')" name="future">Alle</button>
+            <button class="editButton" wire:click.prevent="getEvents('future')" name="future">Aktiv</button>
+            <button class="editButton" wire:click.prevent="getEvents('history')" name="past">Beendet</button>
+            <button class="editButton" wire:click.prevent="getEvents('canceled')" name="past">Trainer Storno</button>
 
         </div>
 
