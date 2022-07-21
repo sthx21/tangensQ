@@ -74,15 +74,27 @@ class FullCalendarController extends Controller
         return response()->json($data);
 
     }
-    public function getTrainerEvents(Request $request)
+    public function getTrainerInHouseEvents(Request $request)
     {
         $trainer = Trainer::whereId($request->trainerId)->with('events')->first();
         $data = $trainer->events()
+            ->whereType('Inhouse')
             ->whereDate('start', '>=', $request->start)
             ->whereDate('end', '<=', $request->end)
             ->get();
-        ;
-//        dd($data);
+
+        return response()->json($data);
+
+    }
+    public function getTrainerWorkshopEvents(Request $request)
+    {
+        $trainer = Trainer::whereId($request->trainerId)->with('events')->first();
+        $data = $trainer->events()
+            ->whereType('workshop')
+            ->whereDate('start', '>=', $request->start)
+            ->whereDate('end', '<=', $request->end)
+            ->get();
+
         return response()->json($data);
 
     }

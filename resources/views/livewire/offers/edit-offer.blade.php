@@ -12,6 +12,12 @@
                     <div class="card-header" >
                         <div class="row d-flex justify-content-between">
                             <div class="col-md-4">
+
+                                @if ($history)
+                                    @foreach($history as $h)
+                                        {{$h}}
+                                    @endforeach
+                                @endif
                                 <h4 style="font-weight: bold"> Angebot für: {{$recipientName}}</h4>
 
                             </div>

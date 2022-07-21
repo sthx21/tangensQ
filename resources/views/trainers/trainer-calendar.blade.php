@@ -13,19 +13,30 @@
                     locale: 'de',
                     eventSources: [
 
-                        // your event source
                         {
-                            url: '/getTrainerEvents',
+                            url: '/getTrainerInHouseEvents',
                             method: 'GET',
                             extraParams: {
                                 trainerId: {{$trainer->id}}
                             },
                             failure: function() {
-                                alert('there was an error while fetching events!');
+                                alert('InHouse Error!');
                             },
                             color: 'green',   // a non-ajax option
                             textColor: 'white' // a non-ajax option
-                        }
+                        },
+                        {
+                            url: '/getTrainerWorkshopEvents',
+                            method: 'GET',
+                            extraParams: {
+                                trainerId: {{$trainer->id}}
+                            },
+                            failure: function() {
+                                alert('Workshop Error!');
+                            },
+                            color: 'blue',   // a non-ajax option
+                            textColor: 'white' // a non-ajax option
+                        },
                     ],
                     dateClick: function(selectedDate) {
                         let flatpickrInstance

@@ -80,7 +80,8 @@ Route::view('/Kalender', 'calendar');
         Route::get('getWorkshopEvents', [FullCalendarController::class, 'getWorkshopEvents']);
         Route::get('getBookedWorkshopEvents', [FullCalendarController::class, 'getBookedWorkshopEvents']);
 
-        Route::get('getTrainerEvents', [FullCalendarController::class, 'getTrainerEvents']);
+        Route::get('getTrainerInHouseEvents', [FullCalendarController::class, 'getTrainerInHouseEvents']);
+        Route::get('getTrainerWorkshopEvents', [FullCalendarController::class, 'getTrainerWorkshopEvents']);
 
         Route::get('getWebexEvents', [FullCalendarController::class, 'getWebexEvents']);
 

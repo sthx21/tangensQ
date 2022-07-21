@@ -4,14 +4,17 @@ namespace App\Http\Livewire\Offers;
 
 use App\Models\Client;
 use App\Models\Company;
+use App\Models\Event;
 use App\Models\Offer;
 use App\Models\Trainer;
 use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Staff;
+use Illuminate\Database\Eloquent\Concerns\HasAttributes;
 
 class EditOffer extends Component
 {
+    use HasAttributes;
     public $offer;
     public $recipient;
     public $addPerson;
@@ -28,6 +31,7 @@ class EditOffer extends Component
     public $events = [];
     public $total;
     public $updater;
+    public $history;
 
 
     protected $rules = [
@@ -88,11 +92,14 @@ class EditOffer extends Component
             'lost'                      => 'lost',
         ];
     }
-    public function updated($name, $value)
+    public function updated($name)
     {
+
 
         $this->validateOnly($name);
     }
+
+
     protected $messages = [
         'invoice_recipient.title.required' => 'Es muss eine Anrede gewählt werden.',
         'invoice_recipient.email.required' => 'Es muss eine Email Adresse angegeben werden.',
@@ -159,6 +166,8 @@ class EditOffer extends Component
     }
     public function update()
     {
+        $history = $this->getDirty();
+        $this->history = $history;
         if ($this->offer->status !== 'won'){
             $this->offer->events = $this->events;
             $this->offer->save();
@@ -169,11 +178,20 @@ class EditOffer extends Component
                 'toast'=>true,
                 'position'=>'top-right'
             ]);
-            $this->redirect('/Angebote');
         }
         if ($this->offer->status === 'won'){
-            $this->offer->confirmation_date = Carbon::today();
+            if (!$this->offer->confirmation_date){
+                $this->offer->confirmation_date = Carbon::today();
+            }
+            $this->saveChanges();
             $this->offer->save();
+
+
+            $calendarEvents = Event::whereOfferNumber($this->offer->offer_number)->get();
+            foreach ($calendarEvents as $event){
+                $event->booked = true;
+                $event->save();
+            }
             $this->dispatchBrowserEvent('swal', [
                 'title' => 'Glückwunsch!',
                 'timer'=>3000,
@@ -181,10 +199,22 @@ class EditOffer extends Component
                 'toast'=>true,
                 'position'=>'center'
             ]);
-            $this->redirect('/Angebote');
         }
+//        $this->redirect('/Angebote');
+
     }
 
+    public function saveChanges()
+    {
+        $changes = [];
+        $history = $this->offer->getDirty();
+        foreach ($history as $key => $val){
+            $original = $this->offer->getOriginal($key);
+            $changes[] = $original.$key;
+        }
+        $this->offer->history = $changes;
+        $this->offer->save();
+    }
     public function render()
     {
 

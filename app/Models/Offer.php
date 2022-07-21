@@ -34,6 +34,7 @@ class Offer extends Model
         'clientMembers' => 'array',
         'events'=> 'array',
         'staffMembers'=> 'array',
+        'history'   => 'array'
     ];
 
     ////
@@ -77,6 +78,7 @@ class Offer extends Model
         'staffMembers',
         'events',
         'special_agreement',
+        'history'
 
     ];
 
